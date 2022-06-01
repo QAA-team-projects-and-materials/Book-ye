@@ -12,12 +12,12 @@ ___
  _it_ - integration tests  
  _feature-name_ is the name of the feature to be tested(e.g. home-page, authorization etc.)
 
-2)Create a pull request:
 
-```
+2) Create a pull request:  
+```  
 git commit
 git push
-```  
-Go to repository and create a Pull Request (in Pull Requests window)
+```
+Go to repository and create a Pull Request (in Pull Requests window)  
 
 3) Notify your team for Code Review with PR link provided (provide the link within the context of the task i.e. Trello ticket)
