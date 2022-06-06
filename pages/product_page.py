@@ -5,9 +5,9 @@ from configuration import ACTIVE_FLAG
 
 class ProductPage(BasePage):
     def product_title_is_present(self):
-        product_title = self.is_element_present(*ProductPageLocators.PRODUCT_TITLE).text
-        assert product_title, "Product title is missing"
-        return product_title
+        product_title_text = self.is_element_present(*ProductPageLocators.PRODUCT_TITLE).text
+        assert product_title_text, "Product title text is missing"
+        return product_title_text
 
     @staticmethod
     def check_if_opened_page_is_selected_product(product_title, product_title_product_page):

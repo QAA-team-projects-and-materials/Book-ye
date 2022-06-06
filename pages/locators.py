@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     HEADER = (By.CSS_SELECTOR, '.header__top')
     SHOPPING_CART_MODAL_WINDOW = (By.CSS_SELECTOR, '.in .modal-dialog')
-    NEWS_LIST = (By.CSS_SELECTOR, '.popup_newslist')
-    NEWS_LIST_TITLE = (By.CSS_SELECTOR, '.top-text__adv-user_opt')
+    NEWS_WINDOW = (By.CSS_SELECTOR, '.popup_newslist')
+    NEWS_WINDOW_TITLE = (By.CSS_SELECTOR, '.top-text__adv-user_opt')
 
 
 class HomePageLocators:

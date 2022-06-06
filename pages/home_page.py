@@ -16,15 +16,14 @@ class HomePage(BasePage):
         return product_title
 
     def get_product_title_text(self):
+        self.product_title_is_present()
         product_title_text = self.browser.find_element(*HomePageLocators.PRODUCT_TITLE).text
         assert product_title_text, "Product title text is missing"
         return product_title_text
 
     def go_to_product_page(self):
         product_title = self.product_title_is_present()
-        product_title_text = self.get_product_title_text()
         product_title.click()
-        return product_title_text
 
     # SLIDER BLOCK
     def slider_block_is_present(self):
@@ -49,13 +48,13 @@ class HomePage(BasePage):
         assert detailed_info_btn, "Detailed info button (slider block) is missing"
         return detailed_info_btn
 
-    def detailed_info_btn_is_clickable(self):
-        self.element_is_clickable(*HomePageLocators.DETAILED_INFO_BTN)
+    def detailed_info_btn_is_visible(self):
+        detailed_info_btn = self.element_is_visible(*HomePageLocators.DETAILED_INFO_BTN)
+        return detailed_info_btn
 
     def go_to_promotions_page(self):
-        self.wait(1)
-        detailed_info_btn = self.detailed_info_btn_is_present()
-        self.detailed_info_btn_is_clickable()
+        detailed_info_btn = self.detailed_info_btn_is_visible()
+        self.detailed_info_btn_is_present()
         detailed_info_btn.click()
 
     def check_if_news_has_changed(self, index):
@@ -65,10 +64,14 @@ class HomePage(BasePage):
         pagination_point_class = pagination_point.get_attribute("class")
         assert ACTIVE_FLAG in pagination_point_class, 'Point in pagination (slider block) is not active'
 
-    def go_to_first_pagination_point(self):
+    def first_pagination_point_is_present(self):
+        first_pagination_point = self.browser.find_elements(*HomePageLocators.PAGINATION_POINTS)[0]
         assert self.is_element_present(*HomePageLocators.PAGINATION_POINTS), \
             "First point in pagination (slider block) is missing"
-        first_pagination_point = self.browser.find_elements(*HomePageLocators.PAGINATION_POINTS)[0]
+        return first_pagination_point
+
+    def go_to_first_pagination_point(self):
+        first_pagination_point = self.first_pagination_point_is_present()
         first_pagination_point.click()
         first_pagination_point_class = first_pagination_point.get_attribute("class")
         # Check if active first point in pagination block
@@ -103,7 +106,6 @@ class HomePage(BasePage):
         return pre_order_btn
 
     def product_title_shopping_cart_is_present(self):
-        self.wait(1)
         product_title_cart = self.is_element_present(*ShoppingCartLocators.PRODUCT_TITLE).text
         product_title = product_title_cart.removesuffix('...')
         assert product_title, "Product title in shopping cart is missing"
