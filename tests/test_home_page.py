@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from pages.home_page import HomePage
@@ -19,11 +21,12 @@ def page(browser):
 
 class TestHomePage:
     def test_user_can_open_product_page(self, browser, page):
-        product_title = page.go_to_product_page()
+        product_title_text = page.get_product_title_text()
+        page.go_to_product_page()
         product_page = ProductPage(browser, browser.current_url)
-        product_title_product_page = product_page.product_title_is_present()
+        product_title_text_product_page = product_page.product_title_is_present()
         product_page.check_if_user_is_redirected(page.url)
-        product_page.check_if_opened_page_is_selected_product(product_title, product_title_product_page)
+        product_page.check_if_opened_page_is_selected_product(product_title_text, product_title_text_product_page)
 
 
 class TestSliderBlock:
@@ -80,7 +83,7 @@ class TestPreOrderBlock:
         product_title_text = page.get_product_title_text()
         pre_order_btn = page.pre_order_btn_is_present()
         pre_order_btn.click()
-        page.shopping_cart_modal_window_is_present()
+        page.shopping_cart_modal_window_is_visible()
         product_title_shopping_cart = page.product_title_shopping_cart_is_present()
         page.check_if_selected_product_is_present_in_cart(product_title_text, product_title_shopping_cart)
 
@@ -97,7 +100,7 @@ class TestPersonalForYou:
         product_title_text = page.get_product_title_text_in_personal_for_you_block()
         order_btn = page.order_btn_in_personal_for_you_block_is_present()
         order_btn.click()
-        page.shopping_cart_modal_window_is_present()
+        page.shopping_cart_modal_window_is_visible()
         product_title_shopping_cart = page.product_title_shopping_cart_is_present()
         page.check_if_selected_product_is_present_in_cart(product_title_text, product_title_shopping_cart)
 
@@ -128,7 +131,7 @@ class TestNovelty:
         product_title_text = page.get_product_title_text_in_novelty_block()
         order_btn = page.order_btn_in_novelty_block_is_present()
         order_btn.click()
-        page.shopping_cart_modal_window_is_present()
+        page.shopping_cart_modal_window_is_visible()
         product_title_shopping_cart = page.product_title_shopping_cart_is_present()
         page.check_if_selected_product_is_present_in_cart(product_title_text, product_title_shopping_cart)
 
@@ -159,7 +162,7 @@ class TestTop:
         product_title_text = page.get_product_title_text_in_top_block()
         order_btn = page.order_btn_in_top_block_is_present()
         order_btn.click()
-        page.shopping_cart_modal_window_is_present()
+        page.shopping_cart_modal_window_is_visible()
         product_title_shopping_cart = page.product_title_shopping_cart_is_present()
         page.check_if_selected_product_is_present_in_cart(product_title_text, product_title_shopping_cart)
 
@@ -190,7 +193,7 @@ class TestStoreRecommended:
         product_title_text = page.get_product_title_text_in_store_recommended_block()
         order_btn = page.order_btn_in_store_recommended_block_is_present()
         order_btn.click()
-        page.shopping_cart_modal_window_is_present()
+        page.shopping_cart_modal_window_is_visible()
         product_title_shopping_cart = page.product_title_shopping_cart_is_present()
         page.check_if_selected_product_is_present_in_cart(product_title_text, product_title_shopping_cart)
 

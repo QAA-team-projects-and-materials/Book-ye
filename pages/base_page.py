@@ -27,12 +27,7 @@ class BasePage(object):
             return False
         return element
 
-    @staticmethod
-    def wait(wait_time=5):
-        return time.sleep(wait_time)
-
     def check_if_user_is_redirected(self, first_url):
-        self.wait()
         current_url = self.browser.current_url
         print(first_url != current_url)
         assert first_url != current_url, "Redirection to page is not carried out"
@@ -49,8 +44,8 @@ class BasePage(object):
         header = self.browser.find_element(*BasePageLocators.HEADER)
         assert header, "Header is missing"
 
-    def shopping_cart_modal_window_is_present(self):
-        shopping_cart = self.is_element_present(*BasePageLocators.SHOPPING_CART_MODAL_WINDOW)
+    def shopping_cart_modal_window_is_visible(self):
+        shopping_cart = self.element_is_visible(*BasePageLocators.SHOPPING_CART_MODAL_WINDOW)
         assert shopping_cart, "Shopping cart modal window is missing"
 
     @staticmethod
@@ -58,19 +53,18 @@ class BasePage(object):
         assert product_title_shopping_cart in product_title_text, \
             'Another product has been present in shopping cart than the one selected'
 
-    def news_list_is_present(self):
-        news_list = self.is_element_present(*BasePageLocators.NEWS_LIST)
-        assert news_list, "News list is missing"
-        return news_list
+    def news_window_title_is_visible(self):
+        news_window_title = self.element_is_visible(*BasePageLocators.NEWS_WINDOW_TITLE)
+        assert news_window_title, "News list is not visible"
+        return news_window_title
 
-    def news_list_title_is_present(self):
-        news_list_title = self.is_element_present(*BasePageLocators.NEWS_LIST_TITLE)
-        assert news_list_title, "News list close button is missing"
-        return news_list_title
+    def news_window_is_present(self):
+        news_window = self.is_element_present(*BasePageLocators.NEWS_WINDOW)
+        assert news_window, "News list is missing"
+        return news_window
 
     def close_news_list(self):
-        self.wait(3)
-        if self.news_list_is_present():
-            news_list_title = self.news_list_title_is_present()
+        if self.news_window_is_present():
+            news_window_title = self.news_window_title_is_visible()
             ac = ActionChains(self.browser)
-            ac.move_to_element(news_list_title).move_by_offset(100, 400).click().perform()
+            ac.move_to_element(news_window_title).move_by_offset(100, 400).click().perform()
