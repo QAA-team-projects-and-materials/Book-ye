@@ -6,6 +6,7 @@ class BasePageLocators:
     SHOPPING_CART_MODAL_WINDOW = (By.CSS_SELECTOR, '.in .modal-dialog')
     NEWS_WINDOW = (By.CSS_SELECTOR, '.popup_newslist')
     NEWS_WINDOW_TITLE = (By.CSS_SELECTOR, '.top-text__adv-user_opt')
+    AUTHORIZATION_BTN = (By.CSS_SELECTOR, ".header-bottom__login")
 
 
 class HomePageLocators:
@@ -86,6 +87,23 @@ class HomePageLocators:
     # MOST POPULAR QUERIES
     MOST_POPULAR_QUERIES_BLOCK = (By.XPATH, "//nav[@role ='navigation']")
     POPULAR_QUERY = (By.CSS_SELECTOR, ".categories_book")
+
+
+class AuthorizationModalWindowLocators:
+    REGISTRATION_LINK = (By.CSS_SELECTOR, ".auth-popup__bottom-link.login-to-register")
+    TERMS_OF_USE_LINK = (By.CSS_SELECTOR, ".check__registration-text-link")
+    REGISTRATION_NAME_FIELD = (By.CSS_SELECTOR, "[placeholder='Ваше ім’я']")
+    REGISTRATION_EMAIL_FIELD = (By.CSS_SELECTOR, "[placeholder='Ваша пошта']")
+    REGISTRATION_PHONE_NUMBER_FIELD = (By.CSS_SELECTOR, "[placeholder='Телефон']")
+    REGISTRATION_PASSWORD_FIELD = (By.CSS_SELECTOR, "[placeholder='Пароль не менше 6 символів']")
+    REGISTRATION_BTN = (By.CSS_SELECTOR, "[value = 'Зареєструватись']")
+    REGISTRATION_ERROR_MESSAGE = (By.CSS_SELECTOR, ".register-form .error.submit-error")
+
+    LOG_IN_EMAIL_OR_PHONE_FIELD = (By.CSS_SELECTOR, "[placeholder='Ваша пошта або телефон']")
+    LOG_IN_PASSWORD = (By.CSS_SELECTOR, "[name='USER_PASSWORD']")
+    LOG_IN_BTN = (By.CSS_SELECTOR, "[value='Увійти']")
+    LOG_IN_GREETING_TEXT = (By.XPATH, "//span[contains(text(), 'Вітаємо, ')]")
+    LOG_IN_ERROR_MESSAGE = (By.CSS_SELECTOR, "#login-modal .error.submit-error")
 
 
 class ProductPageLocators:
