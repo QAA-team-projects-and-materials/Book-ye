@@ -4,9 +4,10 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     HEADER = (By.CSS_SELECTOR, '.header__top')
     SHOPPING_CART_MODAL_WINDOW = (By.CSS_SELECTOR, '.in .modal-dialog')
-    NEWS_WINDOW = (By.CSS_SELECTOR, '.popup_newslist')
-    NEWS_WINDOW_TITLE = (By.CSS_SELECTOR, '.top-text__adv-user_opt')
+    NEWS_WINDOW = (By.CSS_SELECTOR, '.new-adv-user__content')
+    NEWS_WINDOW_TITLE = (By.CSS_SELECTOR, '.top-text__adv-user')
     AUTHORIZATION_BTN = (By.CSS_SELECTOR, ".header-bottom__login")
+    WISHLIST_BTN = (By.CSS_SELECTOR, ".header-bottom__favorites-icon.header-bottom__icon")
 
 
 class HomePageLocators:
@@ -109,6 +110,17 @@ class AuthorizationModalWindowLocators:
 class ProductPageLocators:
     PRODUCT_TITLE = (By.CSS_SELECTOR, '.card__title')
     FEEDBACK_BTN = (By.XPATH, "//li/a[contains(text(), 'Відгуки')]/..")
+    BUY_BTN = (By.CSS_SELECTOR, '.button.button--width.card__button')
+    ADD_PRODUCT_TO_WISHLIST_LINK = (By.CSS_SELECTOR, '.desire__text')
+    READ_THE_PASSAGE_LINK = (By.CSS_SELECTOR, '.preview__label.preview__label--position')
+    READ_THE_PASSAGE_MODAL_WINDOW = (By.CSS_SELECTOR, '.modal-content.modal-content--height')
+    SHOP_ADDRESSES_LINK = (By.XPATH, "//a[contains(text(), 'Адреси магазинів')]")
+    DELIVERY_TEXT = (By.XPATH, "//span[contains(text(), 'Доставка')]")
+    INFO_ABOUT_DELIVERY = (By.XPATH, "//p[contains(text(), 'відділення Нової Пошти')]")
+    PAYMENT_TEXT = (By.XPATH, "//span[contains(text(), 'Оплата')]")
+    INFO_ABOUT_PAYMENT = (By.XPATH, "//p[contains(text(), 'Післяплата (оплата на пошті')]")
+    LEFT_ARROW_IN_PRODUCT_PICTURE_FIELD = (By.CSS_SELECTOR, ".preview-carousel .owl-prev")
+    NEW_PRODUCT_PICTURE = (By.CSS_SELECTOR, ".card__preview-wrap div[class='owl-item']:last-child")
 
 
 class PromotionsPageLocators:
@@ -130,3 +142,11 @@ class BlogPageLocators:
 
 class BookLoversClubPageLocators:
     TOPIC_LIST = (By.CSS_SELECTOR, '.ye-club-container.row')
+
+
+class WishlistPageLocators:
+    PRODUCT_TITLE = (By.CSS_SELECTOR, '.book-info__name')
+
+
+class ContactsLocators:
+    CONTACTS_PHONE_NUMBER = (By.CSS_SELECTOR, '.art-info__tel')

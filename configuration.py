@@ -27,3 +27,6 @@ LOG_IN_GREETING = "Вітаємо,"
 LOG_IN_INVALID_EMAIL = "summer"
 LOG_IN_INVALID_PASSWORD = "12345678"
 LOG_IN_INVALID_MESSAGE = "Невірний логін або пароль"
+
+# PRODUCT PAGE TESTS
+PRODUCT_PAGE_LINK = "https://book-ye.com.ua/catalog/zahalna-istoriya-ukrayiny/podolaty-mynule-hlobalna-istoriya-ukrayiny/"

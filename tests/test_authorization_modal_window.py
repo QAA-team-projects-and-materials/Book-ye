@@ -1,5 +1,3 @@
-import time
-
 import pytest
 
 from configuration import HOME_PAGE_LINK
