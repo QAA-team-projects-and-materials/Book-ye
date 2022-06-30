@@ -21,7 +21,11 @@ def browser(request):
 
     if browser_name == "chrome":
         print("\nStart chrome browser for test..")
-        browser = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument("start-maximized")
+        # to supress the error messages/logs
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        browser = webdriver.Chrome(options=options)
         browser.maximize_window()
 
     elif browser_name == "firefox":

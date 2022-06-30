@@ -1,5 +1,3 @@
-import time
-
 import pytest
 
 from pages.home_page import HomePage
@@ -24,7 +22,7 @@ class TestHomePage:
         product_title_text = page.get_product_title_text()
         page.go_to_product_page()
         product_page = ProductPage(browser, browser.current_url)
-        product_title_text_product_page = product_page.product_title_is_present()
+        product_title_text_product_page = product_page.product_title_text_is_present()
         product_page.check_if_user_is_redirected(page.url)
         product_page.check_if_opened_page_is_selected_product(product_title_text, product_title_text_product_page)
 
